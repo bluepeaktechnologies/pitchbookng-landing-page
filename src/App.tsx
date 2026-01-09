@@ -1,7 +1,6 @@
 import "./App.css";
 import AppFooter from "./components/Footer";
 import AppHeader from "./components/Header";
-import { Contact } from "./screens/Contact";
 import HeroSection from "./screens/Hero";
 
 function App() {
