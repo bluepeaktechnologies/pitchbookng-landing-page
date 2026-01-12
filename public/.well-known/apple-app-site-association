@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "DZ24F9LC96.com.pitchbookng.clientapp",
+        "paths": [
+          "/*"
+        ]
+      }
+    ]
+  }
+}

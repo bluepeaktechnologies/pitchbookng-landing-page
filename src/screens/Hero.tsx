@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { Images } from "../assets";
 function StoreButtons() {
   return (
@@ -26,6 +27,10 @@ function StoreButtons() {
 }
 
 export default function HeroSection() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section id="home" className="relative overflow-hidden w-full">
       {/* Textured background */}

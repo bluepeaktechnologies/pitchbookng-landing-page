@@ -1,15 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Images } from "../assets";
+import { Link } from "react-router-dom";
 
 type NavItem = { label: string; href: string };
 
 const NAV: NavItem[] = [
-  { label: "Home", href: "#home" },
+  { label: "Home", href: "/" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Features", href: "#features" },
   { label: "Download App", href: "#download" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 function classNames(...v: Array<string | false | undefined | null>) {
@@ -123,13 +124,14 @@ export default function AppHeader({
           {/* Desktop nav */}
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
+                onClick={() => window.scrollTo(0, 0)}
                 className="rounded-xl px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-emerald-50 hover:text-zinc-900"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

@@ -28,7 +28,7 @@ const productLinks: FooterLink[] = [
 
 const companyLinks: FooterLink[] = [
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contac-ust" },
   { label: "Careers", href: "/careers" },
   { label: "Press", href: "/press" },
 ];
