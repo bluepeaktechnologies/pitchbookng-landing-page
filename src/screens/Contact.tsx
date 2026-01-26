@@ -84,8 +84,10 @@ export default function ContactUs() {
         message: "",
         company: "",
       });
-    } catch (err) {
-      setStatus({ state: "error", message: err?.message || "Failed to send." });
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to send.";
+
+      setStatus({ state: "error", message });
     }
   }
 
