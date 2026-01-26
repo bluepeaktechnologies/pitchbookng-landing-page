@@ -7,7 +7,7 @@ import { TermsAndConditions } from "./components/TermsAndConditions";
 import { TermsOfService } from "./components/TermsOfService";
 import { CancellationTerms } from "./components/CancellationTerms";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
-import { Contact } from "./screens/Contact";
+import ContactUs from "./screens/Contact";
 import { NotFound } from "./screens/NotFound";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HeroSection />} />
             <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/refunds" element={<CancellationTerms />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/service" element={<TermsOfService />} />

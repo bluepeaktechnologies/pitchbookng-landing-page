@@ -80,7 +80,7 @@ export const TermsAndConditions = () => {
                 </p>
 
                 {TERMS_SECTIONS.map((s) => (
-                  <section key={s.id} id={s.id}>
+                  <section key={s.id} id={s.id} className="mt-5">
                     <h2>{s.title}</h2>
                     {s.content}
                   </section>
@@ -125,454 +125,509 @@ export const TermsAndConditions = () => {
   );
 };
 
+const EmailLink = ({ email }: { email: string }) => (
+  <a
+    href={`mailto:${email}`}
+    className="font-medium text-blue-600 underline underline-offset-4 hover:text-blue-700"
+  >
+    {email}
+  </a>
+);
+
+const BulletList = ({ items }: { items: React.ReactNode[] }) => (
+  <ul className="mt-3 space-y-2 list-disc pl-5 text-sm leading-6 text-gray-700">
+    {items.map((item, i) => (
+      <li key={i}>{item}</li>
+    ))}
+  </ul>
+);
+
+const Note = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => (
+  <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
+    <p className="text-sm font-semibold text-gray-900">{title}</p>
+    <div className="mt-2 text-sm leading-6 text-gray-700">{children}</div>
+  </div>
+);
+
 const TERMS_SECTIONS: Section[] = [
   {
     id: "introduction",
     title: "1. Introduction",
     content: (
-      <>
-        <p>
+      <div className="space-y-4">
+        <p className="text-sm leading-6 text-gray-700">
           Pitchbook NG (“Pitchbook NG”, “we”, “us”, or “our”) operates a digital
-          platform, including a mobile application and website (collectively,
-          the “Platform”), that enables users to discover, book, and make
-          payments for football pitches located in Abuja, Nigeria. These Terms
-          and Conditions (“Terms”) govern your access to and use of the
-          Platform, including any content, functionality, and services offered
-          on or through it.
+          platform (mobile application and website, collectively the “Platform”)
+          that enables users to discover, book, and pay for football pitches
+          located in Abuja, Nigeria.
         </p>
-        <p>
-          By accessing or using the Platform, you acknowledge that you have
-          read, understood, and agree to be bound by these Terms, our Privacy
-          Policy, and our Refund and Cancellation Policy (collectively, the
-          “Agreement”). If you do not agree to these Terms, you must not access
-          or use the Platform.
+
+        <p className="text-sm leading-6 text-gray-700">
+          These Terms and Conditions (“Terms”) govern your access to and use of
+          the Platform, including all content, functionality, and services
+          offered through it.
         </p>
-        <p>
-          We reserve the right to update these Terms at any time. We will notify
-          you of material changes by posting the updated Terms on the Platform
-          and updating the “Last Updated” date. Your continued use of the
-          Platform after such changes constitutes your acceptance of the revised
-          Terms.
+
+        <Note title="Agreement">
+          By accessing or using the Platform, you confirm that you have read,
+          understood, and agree to be bound by these Terms, our Privacy Policy,
+          and our Refund and Cancellation Policy (together, the “Agreement”). If
+          you do not agree, do not access or use the Platform.
+        </Note>
+
+        <p className="text-sm leading-6 text-gray-700">
+          We may update these Terms from time to time. We will post the updated
+          version on the Platform and revise the “Last Updated” date. Continued
+          use of the Platform after changes take effect constitutes acceptance
+          of the revised Terms.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "eligibility-and-capacity",
     title: "2. Eligibility and Capacity",
     content: (
-      <>
-        <p>To use the Platform, you must:</p>
-        <ul>
-          <li>
-            Be at least 18 years old or have the valid consent of a parent or
-            legal guardian who agrees to these Terms on your behalf;
-          </li>
-          <li>
-            Have the legal capacity to enter into binding agreements under the
-            laws of the Federal Republic of Nigeria; and
-          </li>
-          <li>
-            Comply with all applicable laws, regulations, and these Terms.
-          </li>
-        </ul>
-        <p>
-          If you are using the Platform on behalf of an entity (e.g., a team or
-          organization), you represent and warrant that you are authorized to
-          bind that entity to these Terms.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          To use the Platform, you must:
         </p>
-      </>
+        <BulletList
+          items={[
+            <>
+              Be at least{" "}
+              <span className="font-medium text-gray-900">18 years old</span>,
+              or have valid consent from a parent/legal guardian who agrees to
+              these Terms on your behalf;
+            </>,
+            "Have the legal capacity to enter into a binding agreement under the laws of the Federal Republic of Nigeria; and",
+            "Comply with all applicable laws, regulations, and these Terms.",
+          ]}
+        />
+        <p className="text-sm leading-6 text-gray-700">
+          If you use the Platform on behalf of an entity (e.g., a team or
+          organisation), you represent that you are authorised to bind that
+          entity to these Terms.
+        </p>
+      </div>
     ),
   },
+
   {
     id: "user-accounts",
     title: "3. User Accounts",
     content: (
-      <>
-        <p>
-          To access certain features of the Platform, you may be required to
-          create an account. You agree to:
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          To access certain features, you may need to create an account. You
+          agree to:
         </p>
-        <ul>
-          <li>
-            Provide accurate, complete, current, and truthful information during
-            registration and keep it updated;
-          </li>
-          <li>
-            Maintain the security and confidentiality of your login credentials
-            (e.g., username and password);
-          </li>
-          <li>Not share your account credentials with any third party; and</li>
-          <li>
-            Immediately notify us of any unauthorized access or use of your
-            account.
-          </li>
-        </ul>
-        <p>
-          You are solely responsible for all activities that occur under your
-          account, including any bookings, payments, or communications.
-          Pitchbook NG shall not be liable for any losses or damages arising
-          from your failure to maintain the security of your account or from
-          unauthorized access due to your negligence.
+        <BulletList
+          items={[
+            "Provide accurate, complete, and up-to-date information and keep it current;",
+            "Keep your login credentials secure and confidential;",
+            "Not share your account credentials with any third party; and",
+            "Notify us promptly of any unauthorised access or use of your account.",
+          ]}
+        />
+        <p className="text-sm leading-6 text-gray-700">
+          You are responsible for all activity under your account, including
+          bookings, payments, and communications. We are not liable for losses
+          caused by your failure to safeguard your credentials or by
+          unauthorised access resulting from your negligence.
         </p>
-        <p>
-          We reserve the right to refuse registration, suspend, or terminate
-          your account at any time for any reason, including but not limited to
-          violations of these Terms.
+        <p className="text-sm leading-6 text-gray-700">
+          We may refuse registration, suspend, or terminate your account where
+          we reasonably believe there is a breach of these Terms, suspected
+          fraud, or where required by law.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "bookings-and-confirmation",
     title: "4. Bookings and Confirmation",
     content: (
-      <>
-        <p>
-          All bookings for football pitches must be made exclusively through the
-          Platform. A booking is only confirmed upon:
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          Bookings must be made through the Platform. A booking is confirmed
+          only when:
         </p>
-        <ul>
-          <li>Successful completion of the booking process; and</li>
-          <li>Receipt of full payment.</li>
-        </ul>
-        <p>
-          Pitch availability, pricing, operating hours, and conditions are set
-          by independent pitch owners or operators (“Pitch Providers”).
-          Pitchbook NG does not own, control, or guarantee:
-        </p>
-        <ul>
-          <li>The accuracy of pitch descriptions, images, or availability;</li>
-          <li>
-            The condition, safety, suitability, or maintenance of any pitch; or
-          </li>
-          <li>
-            The quality of equipment, facilities, or services provided at the
-            pitch.
-          </li>
-        </ul>
-        <p>
+        <BulletList
+          items={[
+            "You complete the booking process; and",
+            "We receive full payment.",
+          ]}
+        />
+
+        <Note title="Pitch Providers">
+          Pitch availability, pricing, operating hours, and on-site conditions
+          are set by independent pitch owners/operators (“Pitch Providers”).
+          Pitchbook NG does not own or operate pitches and does not guarantee:
+          <BulletList
+            items={[
+              "The accuracy of pitch descriptions, images, rules, or availability;",
+              "The condition, safety, suitability, or maintenance of any pitch; or",
+              "The quality of facilities, equipment, amenities, or services at the pitch.",
+            ]}
+          />
+        </Note>
+
+        <p className="text-sm leading-6 text-gray-700">
           You are responsible for reviewing all pitch details, rules, and
-          restrictions before booking. Confirmed bookings are subject to the
-          Pitch Provider’s terms, which may be provided separately.
+          restrictions before booking. Confirmed bookings may also be subject to
+          the Pitch Provider’s terms, which may be communicated separately.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "payments-charges-and-taxes",
     title: "5. Payments, Charges, and Taxes",
     content: (
-      <>
-        <p>
-          All prices on the Platform are displayed in Nigerian Naira (₦) and may
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          All prices are displayed in Nigerian Naira (₦). The total amount may
           include:
         </p>
-        <ul>
-          <li>Pitch rental fees;</li>
-          <li>Platform service fees;</li>
-          <li>Payment processing fees; and</li>
-          <li>
-            Applicable taxes, including Value Added Tax (VAT) as required under
-            Nigerian tax laws.
-          </li>
-        </ul>
-        <p>
-          VAT may be included in the displayed price or charged separately. By
-          completing a transaction, you authorize Pitchbook NG (or its
-          designated payment processor) to charge your selected payment method
-          for the total amount, including all applicable fees and taxes.
+
+        <BulletList
+          items={[
+            "Pitch rental fees;",
+            "Platform/service fees;",
+            "Payment processing fees; and",
+            "Applicable taxes (including VAT) as required under Nigerian tax laws.",
+          ]}
+        />
+
+        <p className="text-sm leading-6 text-gray-700">
+          VAT may be included in the displayed price or shown as a separate line
+          item, depending on the applicable rules. By completing a transaction,
+          you authorise Pitchbook NG (or its payment processor) to charge your
+          selected payment method for the total amount, including fees and
+          taxes.
         </p>
-        <p>
-          We accept payments via approved methods displayed on the Platform. All
-          payments are processed securely, but we do not store your full payment
-          information (see our Privacy Policy for details). You represent and
-          warrant that you are authorized to use the payment method provided.
+
+        <p className="text-sm leading-6 text-gray-700">
+          We accept payment methods displayed on the Platform. Payments are
+          processed securely. We do not store full card details (see our Privacy
+          Policy). You confirm that you are authorised to use the payment method
+          provided.
         </p>
-        <p>
-          In the event of payment disputes, you agree to cooperate with us and
-          your payment provider to resolve them promptly.
+
+        <p className="text-sm leading-6 text-gray-700">
+          If a payment is disputed or reversed, you agree to cooperate with us
+          and the payment provider to resolve the issue promptly. We may suspend
+          access to the Platform where there is an unresolved dispute or
+          chargeback.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "refunds-and-cancellations",
     title: "6. Refunds and Cancellations",
     content: (
-      <>
-        <p>
-          Refunds and cancellations are governed exclusively by our Refund and
-          Cancellation Policy, which is incorporated into these Terms by
-          reference. Please review it carefully before making a booking, as it
-          outlines conditions for refunds, cancellation windows, and any
-          associated fees.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          Refunds and cancellations are governed by our Refund and Cancellation
+          Policy, which forms part of this Agreement. Please review it before
+          booking—it explains eligibility, cancellation windows, and any fees.
         </p>
-        <p>
-          Pitchbook NG processes refunds in accordance with the Policy, but
-          ultimate approval may depend on the Pitch Provider. We are not
-          responsible for delays in refunds due to banking or payment processor
-          issues.
+        <p className="text-sm leading-6 text-gray-700">
+          We process refunds in accordance with that Policy. Refund timelines
+          may vary due to banks or payment processors, and we are not
+          responsible for delays outside our control.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "platform-role-and-limitations",
     title: "7. Platform Role and Limitations",
     content: (
-      <>
-        <p>
-          Pitchbook NG acts solely as an intermediary and facilitator for
-          bookings and payments between users and Pitch Providers. We do not
-          own, operate, manage, control, or endorse any pitches listed on the
-          Platform.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          Pitchbook NG acts as an intermediary to facilitate bookings and
+          payments between users and Pitch Providers. We do not own, operate,
+          manage, control, or endorse any pitch listed on the Platform.
         </p>
-        <p>Pitchbook NG shall not be responsible or liable for:</p>
-        <ul>
-          <li>
-            The condition, safety, maintenance, or suitability of any pitch;
-          </li>
-          <li>
-            The conduct, negligence, or actions of Pitch Providers, their staff,
-            or other users;
-          </li>
-          <li>
-            The quality or availability of equipment, amenities, or services at
-            the pitch;
-          </li>
-          <li>
-            Any disruptions, cancellations, injuries, damages, or losses
-            occurring during pitch usage; or
-          </li>
-          <li>Any disputes between users and Pitch Providers.</li>
-        </ul>
-        <p>
-          You acknowledge that Pitch Providers are independent third parties,
-          and any agreements or interactions with them are at your own risk.
+
+        <p className="text-sm leading-6 text-gray-700">
+          To the extent permitted by law, Pitchbook NG is not responsible for:
         </p>
-      </>
+
+        <BulletList
+          items={[
+            "The condition, safety, maintenance, or suitability of any pitch;",
+            "The conduct or actions of Pitch Providers, their staff, or other users;",
+            "The quality or availability of equipment, amenities, or services at the pitch;",
+            "Disruptions, cancellations, injuries, damages, or losses occurring during pitch use; or",
+            "Disputes between users and Pitch Providers.",
+          ]}
+        />
+
+        <p className="text-sm leading-6 text-gray-700">
+          Pitch Providers are independent third parties. Any agreements or
+          interactions with Pitch Providers are at your own risk.
+        </p>
+      </div>
     ),
   },
+
   {
     id: "assumption-of-risk-and-release",
     title: "8. Assumption of Risk and Release",
     content: (
-      <>
-        <p>
-          Football and related activities involve inherent risks, including but
-          not limited to physical injury, property damage, or other hazards. By
-          using the Platform and booking a pitch, you voluntarily assume all
-          such risks and agree to release Pitchbook NG, its affiliates,
-          officers, directors, employees, and agents from any claims,
-          liabilities, or damages arising from your use of the Platform or
-          participation in activities at booked pitches.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          Football and related activities carry inherent risks, including the
+          risk of physical injury, illness, property damage, and other hazards.
+          By booking a pitch and participating in activities, you voluntarily
+          assume these risks.
         </p>
-      </>
+        <p className="text-sm leading-6 text-gray-700">
+          To the fullest extent permitted by Nigerian law, you release Pitchbook
+          NG, its affiliates, officers, directors, employees, and agents from
+          claims, liabilities, or damages arising from your use of the Platform
+          or participation in activities at booked pitches, except where such
+          liability cannot be excluded by law.
+        </p>
+      </div>
     ),
   },
+
   {
     id: "prohibited-conduct",
     title: "9. Prohibited Conduct",
     content: (
-      <>
-        <p>You agree not to:</p>
-        <ul>
-          <li>
-            Use the Platform for any unlawful, fraudulent, or unauthorized
-            purpose;
-          </li>
-          <li>
-            Interfere with, disrupt, or damage the Platform, including through
-            hacking, viruses, or denial-of-service attacks;
-          </li>
-          <li>Misrepresent your identity, affiliations, or intentions;</li>
-          <li>
-            Harass, threaten, or infringe on the rights of other users, Pitch
-            Providers, or third parties;
-          </li>
-          <li>
-            Post, upload, or transmit any harmful, offensive, or inappropriate
-            content;
-          </li>
-          <li>
-            Reverse engineer, decompile, or attempt to extract source code from
-            the Platform; or
-          </li>
-          <li>Violate any applicable laws, regulations, or these Terms.</li>
-        </ul>
-        <p>
-          We may monitor Platform usage and reserve the right to investigate
-          violations, suspend or terminate access, and report illegal activities
-          to authorities.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">You agree not to:</p>
+        <BulletList
+          items={[
+            "Use the Platform for any unlawful, fraudulent, or unauthorised purpose;",
+            "Interfere with or disrupt the Platform (including hacking, malware, or denial-of-service attacks);",
+            "Impersonate others or misrepresent your identity, affiliation, or intent;",
+            "Harass, threaten, or violate the rights of users, Pitch Providers, or third parties;",
+            "Post or transmit content that is harmful, offensive, or unlawful;",
+            "Reverse engineer, decompile, or attempt to extract source code from the Platform; or",
+            "Violate any applicable laws, regulations, or these Terms.",
+          ]}
+        />
+        <p className="text-sm leading-6 text-gray-700">
+          We may monitor usage, investigate suspected violations, suspend or
+          terminate access, and report unlawful activity to relevant authorities
+          where required or appropriate.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "intellectual-property",
     title: "10. Intellectual Property",
     content: (
-      <>
-        <p>
-          All content on the Platform, including text, graphics, logos,
-          trademarks, software, and user interfaces, is owned by or licensed to
-          Pitchbook NG and protected by Nigerian and international intellectual
-          property laws. You are granted a limited, non-exclusive,
-          non-transferable license to access and use the Platform for personal,
-          non-commercial purposes.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          The Platform and its content (including text, graphics, logos,
+          trademarks, software, and user interfaces) are owned by or licensed to
+          Pitchbook NG and are protected by Nigerian and applicable
+          international intellectual property laws.
         </p>
-        <p>
-          You agree not to copy, modify, distribute, sell, or exploit any
-          Platform content without our prior written consent. User-generated
-          content (e.g., reviews) grants us a perpetual, royalty-free license to
-          use, display, and modify it for Platform purposes.
+        <p className="text-sm leading-6 text-gray-700">
+          We grant you a limited, non-exclusive, non-transferable licence to
+          access and use the Platform for personal, non-commercial purposes. You
+          must not copy, modify, distribute, sell, or exploit any Platform
+          content without our prior written consent.
         </p>
-      </>
+        <p className="text-sm leading-6 text-gray-700">
+          If you submit user-generated content (e.g., reviews), you grant us a
+          worldwide, royalty-free licence to host, use, display, reproduce, and
+          modify it for Platform purposes (including moderation and formatting).
+        </p>
+      </div>
     ),
   },
+
   {
     id: "disclaimer-of-warranties",
     title: "11. Disclaimer of Warranties",
     content: (
-      <>
-        <p>
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
           The Platform is provided “as is” and “as available” without warranties
-          of any kind, express or implied, including but not limited to
-          warranties of merchantability, fitness for a particular purpose,
-          accuracy, or non-infringement. We do not warrant that the Platform
-          will be uninterrupted, error-free, secure, or free from viruses.
+          of any kind, express or implied, including implied warranties of
+          merchantability, fitness for a particular purpose, accuracy, and
+          non-infringement.
         </p>
-      </>
+        <p className="text-sm leading-6 text-gray-700">
+          We do not warrant that the Platform will be uninterrupted, error-free,
+          secure, or free from viruses or other harmful components.
+        </p>
+      </div>
     ),
   },
+
   {
     id: "limitation-of-liability",
     title: "12. Limitation of Liability",
     content: (
-      <>
-        <p>
-          To the fullest extent permitted by Nigerian law, Pitchbook NG, its
-          affiliates, officers, directors, employees, and agents shall not be
-          liable for any indirect, incidental, special, consequential, or
-          punitive damages, including loss of profits, data, or goodwill,
-          arising from or related to your use of the Platform, even if advised
-          of the possibility of such damages.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          To the fullest extent permitted by Nigerian law, Pitchbook NG and its
+          affiliates, officers, directors, employees, and agents are not liable
+          for indirect, incidental, special, consequential, or punitive damages
+          (including loss of profits, data, or goodwill) arising from or related
+          to your use of the Platform, even if we have been advised of the
+          possibility of such damages.
         </p>
-        <p>
-          Our total liability for any claim shall not exceed the amount you paid
-          us for the specific booking giving rise to the claim.
+        <p className="text-sm leading-6 text-gray-700">
+          To the extent permitted by law, our total liability for any claim
+          related to a booking will not exceed the amount you paid us for the
+          specific booking giving rise to the claim.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "indemnification",
     title: "13. Indemnification",
     content: (
-      <>
-        <p>
-          You agree to indemnify, defend, and hold harmless Pitchbook NG, its
-          affiliates, officers, directors, employees, and agents from any
-          claims, liabilities, damages, losses, or expenses (including
-          reasonable legal fees) arising from your use of the Platform,
-          violation of these Terms, or infringement of third-party rights.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          You agree to indemnify and hold harmless Pitchbook NG, its affiliates,
+          officers, directors, employees, and agents from claims, liabilities,
+          damages, losses, and expenses (including reasonable legal fees)
+          arising out of your use of the Platform, your violation of these
+          Terms, or your infringement of any third-party rights.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "termination",
     title: "14. Termination",
     content: (
-      <>
-        <p>
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
           We may suspend or terminate your access to the Platform at any time,
-          with or without notice, for any reason, including breach of these
-          Terms, suspected fraud, or legal requirements. Upon termination, your
-          right to use the Platform ceases immediately, and we may delete your
-          account and data.
+          with or without notice, if you breach these Terms, we suspect fraud,
+          or where required by law.
         </p>
-      </>
+        <p className="text-sm leading-6 text-gray-700">
+          Upon termination, your right to use the Platform ends immediately. We
+          may delete or anonymise account data in accordance with our Privacy
+          Policy and applicable law.
+        </p>
+      </div>
     ),
   },
+
   {
     id: "force-majeure",
     title: "15. Force Majeure",
     content: (
-      <>
-        <p>
-          Pitchbook NG shall not be liable for any failure or delay in
-          performing its obligations due to events beyond our reasonable
-          control, including but not limited to acts of God, natural disasters,
-          war, terrorism, pandemics, strikes, or governmental actions.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          Pitchbook NG is not liable for any failure or delay in performing its
+          obligations due to events beyond our reasonable control, including
+          acts of God, natural disasters, war, terrorism, pandemics, strikes,
+          outages, or governmental actions.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "governing-law-and-dispute-resolution",
     title: "16. Governing Law and Dispute Resolution",
     content: (
-      <>
-        <p>
-          These Terms shall be governed by and construed in accordance with the
-          laws of the Federal Republic of Nigeria, without regard to conflict of
-          law principles.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          These Terms are governed by the laws of the Federal Republic of
+          Nigeria, without regard to conflict of law principles.
         </p>
-        <p>
-          Any disputes arising from or related to these Terms or the Platform
-          shall be resolved through good-faith negotiations. If unresolved,
-          disputes shall be submitted to binding arbitration in Abuja, Nigeria,
-          under the rules of the Chartered Institute of Arbitrators (Nigeria
-          Branch). You waive any right to participate in class actions.
-        </p>
-      </>
+
+        <Note title="Dispute Resolution">
+          <p>
+            Disputes will first be addressed through good-faith negotiations. If
+            unresolved, disputes will be submitted to binding arbitration in
+            Abuja, Nigeria under the rules of the Chartered Institute of
+            Arbitrators (Nigeria Branch), to the extent permitted by law.
+          </p>
+          <p className="mt-2">
+            Where permitted, you waive any right to participate in a class
+            action or representative proceeding.
+          </p>
+        </Note>
+      </div>
     ),
   },
+
   {
     id: "amendments-and-severability",
     title: "17. Amendments and Severability",
     content: (
-      <>
-        <p>
-          We may amend these Terms at any time. If any provision is held invalid
-          or unenforceable, the remaining provisions shall remain in full
-          effect.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          We may amend these Terms at any time by posting an updated version on
+          the Platform. If any provision is held to be invalid or unenforceable,
+          the remaining provisions will remain in full force and effect.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "entire-agreement",
     title: "18. Entire Agreement",
     content: (
-      <>
-        <p>
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
           These Terms, together with our Privacy Policy and Refund and
-          Cancellation Policy, constitute the entire agreement between you and
-          Pitchbook NG, superseding any prior agreements.
+          Cancellation Policy, form the entire agreement between you and
+          Pitchbook NG and supersede any prior agreements or understandings
+          relating to the Platform.
         </p>
-      </>
+      </div>
     ),
   },
+
   {
     id: "contact-information",
     title: "19. Contact Information",
     content: (
-      <>
-        <p>For questions or concerns, contact us at:</p>
-        <ul>
-          <li>
-            Email:{" "}
-            <a href="mailto:pitchbookng@gmail.com">pitchbookng@gmail.com</a>
-          </li>
-        </ul>
-        <p>
-          If you believe your intellectual property rights have been infringed,
-          please provide details to the above email for review.
+      <div className="space-y-3">
+        <p className="text-sm leading-6 text-gray-700">
+          For questions or concerns about these Terms, contact us at:
         </p>
-      </>
+
+        <div className="rounded-xl border border-gray-200 bg-white p-4">
+          <p className="text-sm text-gray-700">
+            <span className="font-semibold text-gray-900">Email:</span>{" "}
+            <EmailLink email="pitchbookng@gmail.com" />
+          </p>
+        </div>
+
+        <p className="text-sm leading-6 text-gray-700">
+          If you believe your intellectual property rights have been infringed,
+          please email details (including proof of ownership and the location of
+          the allegedly infringing content) to the address above for review.
+        </p>
+      </div>
     ),
   },
 ];
