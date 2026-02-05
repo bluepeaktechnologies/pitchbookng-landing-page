@@ -54,6 +54,28 @@ export default function ContactUs() {
     setStatus({ state: "submitting" });
 
     try {
+      const res = await fetch(
+        "https://submitsupportrequest-dtfoxf6bsq-uc.a.run.app",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            category: form.category,
+            bookingRef: form.bookingRef,
+            message: form.message,
+            platform: "web",
+            createdAt: new Date().toISOString(),
+          }),
+          method: "POST",
+        }
+      );
+
+      // const response = await res.json();
+      // return response;
       // const res = await fetch("/api/contact", {
       //   method: "POST",
       //   headers: { "Content-Type": "application/json" },
@@ -68,11 +90,12 @@ export default function ContactUs() {
       //   }),
       // });
 
-      // if (!res.ok) {
-      //   const data = await res.json().catch(() => null);
-      //   throw new Error(
-      //     data?.message || "Something went wrong. Please try again."
-      //   );
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(
+          data?.message || "Something went wrong. Please try again."
+        );
+      }
       // }
 
       setStatus({ state: "success" });
@@ -120,7 +143,6 @@ export default function ContactUs() {
 
       <div className="mx-auto px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          {/* Form */}
           <section className="lg:col-span-7">
             <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-8">
               <h2 className="text-lg font-semibold text-zinc-900">
