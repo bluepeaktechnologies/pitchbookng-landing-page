@@ -3,7 +3,10 @@ import { Images } from "../assets";
 function StoreButtons() {
   return (
     <div className="flex gap-3">
-      <a href="" aria-label="Download on the App Store">
+      <a
+        href="https://apps.apple.com/ng/app/pitchbook-ng/id6757698794"
+        aria-label="Download on the App Store"
+      >
         <div className=" h-12 bg-black rounded-lg flex items-center p-2 gap-3">
           <img src={Images.appleLogoWhite} className="w-6" />
           <div className="flex flex-col gap-0">
