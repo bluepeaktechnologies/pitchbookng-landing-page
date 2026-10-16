@@ -1,0 +1,246 @@
+{
+  "brand": {
+    "name": "PitchBookng",
+    "shortName": "PitchBook NG",
+    "tagline": "Book football pitches instantly",
+    "description": "PitchBookng helps you find and book football pitches in Abuja and across Nigeria. Real-time availability, secure payments, QR tickets, and ratings.",
+    "url": "https://pitchbookng.com",
+    "logo": "https://pitchbookng.com/logo.png",
+    "ogImage": "https://pitchbookng.com/thumbnail.png",
+    "twitterHandle": "@pitchbookng"
+  },
+  "contact": {
+    "infoEmail": "info@pitchbookng.com",
+    "supportEmail": "support@pitchbookng.com",
+    "phone": "+2347037656451",
+    "phoneDisplay": "+234 703 765 6451",
+    "whatsappUrl": "https://wa.me/2347037656451",
+    "hours": "Mon–Sat, 9:00am – 6:00pm",
+    "address": {
+      "locality": "Jahi",
+      "city": "Abuja",
+      "region": "FCT",
+      "country": "Nigeria",
+      "countryCode": "NG",
+      "display": "Jahi, Abuja • Nigeria"
+    }
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/pitchbookng",
+    "x": "https://x.com/pitchbookng",
+    "facebook": "https://www.facebook.com/share/1LsN4eRGR7",
+    "tiktok": "https://www.tiktok.com/@pitchbook.ng",
+    "whatsapp": "https://wa.me/2347037656451"
+  },
+  "stores": {
+    "ios": {
+      "url": "https://apps.apple.com/ng/app/pitchbook-ng/id6757698794",
+      "appId": "6757698794",
+      "name": "PitchBook NG"
+    },
+    "android": {
+      "url": null,
+      "package": "com.pitchbookng.clientapp"
+    }
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "How It Works", "href": "/#how-it-works" },
+    { "label": "Features", "href": "/#features" },
+    { "label": "Download App", "href": "/#download" },
+    { "label": "Contact", "href": "/contact-us" }
+  ],
+  "footer": {
+    "product": [
+      { "label": "How It Works", "href": "/#how-it-works" },
+      { "label": "Features", "href": "/#features" },
+      { "label": "For Pitch Owners", "href": "/owners" },
+      { "label": "Football Pitches in Abuja", "href": "/football-pitches-abuja" }
+    ],
+    "company": [
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact-us" },
+      { "label": "FAQ", "href": "/faq" }
+    ],
+    "legal": [
+      { "label": "Terms & Conditions", "href": "/terms" },
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Refund Policy", "href": "/refunds" }
+    ]
+  },
+  "howItWorks": [
+    {
+      "title": "Find a pitch near you",
+      "body": "Browse football pitches in Abuja and across Nigeria. Filter by area, surface, and time so you spend minutes planning — not hours calling around."
+    },
+    {
+      "title": "Pick a time slot",
+      "body": "See real-time availability and lock in a slot that works for your team. No double bookings, no guesswork."
+    },
+    {
+      "title": "Pay securely",
+      "body": "Checkout in the app with a secure payment. Your booking is confirmed instantly and stored in your history."
+    },
+    {
+      "title": "Show your QR ticket and play",
+      "body": "Arrive with your QR ticket, get scanned at the gate, and focus on the game — not the logistics."
+    }
+  ],
+  "features": [
+    {
+      "title": "Real-time availability",
+      "body": "See open slots as they happen so you can book the pitch you actually want."
+    },
+    {
+      "title": "Secure payments",
+      "body": "Pay in-app with trusted checkout. No cash handoffs or disputed transfers."
+    },
+    {
+      "title": "Ratings & reviews",
+      "body": "Choose pitches other players trust, and leave your own rating after you play."
+    },
+    {
+      "title": "QR tickets",
+      "body": "Your booking lives on your phone. Staff scan it on arrival — fast and fraud-resistant."
+    },
+    {
+      "title": "Booking history",
+      "body": "Rebook your regular slot, share details with teammates, and keep receipts in one place."
+    },
+    {
+      "title": "Built for Nigeria",
+      "body": "Naira pricing, local support, and pitches in Abuja — with more cities on the way."
+    }
+  ],
+  "faq": [
+    {
+      "question": "How do I book a football pitch in Abuja?",
+      "answer": "Download PitchBookng on the App Store, create an account, search for pitches near you, pick an available slot, and pay in the app. Your QR ticket is ready as soon as payment confirms."
+    },
+    {
+      "question": "Which areas of Abuja can I book pitches in?",
+      "answer": "PitchBookng lists football pitches across Abuja, including Wuse, Garki, Maitama, Jahi, Gwarinpa, Jabi, Utako, Asokoro, Kubwa, Lugbe and more as venues join the platform."
+    },
+    {
+      "question": "Do I need the app to book a pitch?",
+      "answer": "Yes. Bookings, payments and QR tickets are handled in the PitchBookng mobile app so availability and payments stay in sync. This website is where you learn how it works and download the app."
+    },
+    {
+      "question": "How do I pay?",
+      "answer": "You pay securely in the app at checkout. Once payment succeeds, the slot is yours and the ticket appears in your bookings."
+    },
+    {
+      "question": "Can I cancel or get a refund?",
+      "answer": "Cancellations and refunds follow our Refund Policy. Open the PitchBookng app or email support@pitchbookng.com with your booking reference and we will help from there."
+    },
+    {
+      "question": "How do pitch owners list their venue?",
+      "answer": "Owners use the PitchBookng organisation app to list venues and pitches, accept bookings, scan QR tickets and track earnings. See the For Pitch Owners page or contact info@pitchbookng.com to get started."
+    },
+    {
+      "question": "Is PitchBookng only in Abuja?",
+      "answer": "We launched in Abuja and are expanding across Nigeria. If you run a pitch in another city, contact us — we would like to list it."
+    },
+    {
+      "question": "How do I contact support?",
+      "answer": "Email support@pitchbookng.com for bookings and refunds, or info@pitchbookng.com for general enquiries. You can also message us on WhatsApp or use the contact form."
+    }
+  ],
+  "about": {
+    "headline": "Football pitch booking, simplified for Nigeria.",
+    "body": [
+      "PitchBookng is a football pitch booking platform built in Nigeria, for Nigerian players and pitch owners. We started in Abuja because finding a decent 5-a-side or 11-a-side slot used to mean a chain of calls, voice notes and bank transfers — and you still were not sure the pitch was free.",
+      "The app shows live availability, takes payment, and gives you a QR ticket to show at the gate. Owners get a dashboard to list pitches, scan tickets and track earnings.",
+      "We are based in Jahi, Abuja. If you want to play more and plan less, download PitchBookng. If you run a pitch, we would like to list it."
+    ]
+  },
+  "owners": {
+    "headline": "Fill more slots. Get paid. Run a tighter pitch.",
+    "intro": "PitchBookng gives football pitch owners in Abuja and across Nigeria a simple way to take bookings online, scan tickets on arrival, and see earnings without chasing transfers.",
+    "benefits": [
+      {
+        "title": "List your pitches",
+        "body": "Add your venue, surfaces and price list. Players discover you when they search for a game nearby."
+      },
+      {
+        "title": "Take bookings 24/7",
+        "body": "Slots fill even when the office is closed. Availability stays in sync so you do not double-book."
+      },
+      {
+        "title": "Scan QR tickets",
+        "body": "Staff confirm the right booking in seconds. No paper lists, no screenshot arguments."
+      },
+      {
+        "title": "Track earnings",
+        "body": "See what came in, which pitches are busy, and invite staff without sharing your login."
+      }
+    ]
+  },
+  "abuja": {
+    "headline": "Book a football pitch in Abuja",
+    "intro": "PitchBookng is the fastest way to find and book football pitches in Abuja — astro turf, 5-a-side and 11-a-side — with live availability and instant confirmation.",
+    "areas": [
+      "Wuse",
+      "Garki",
+      "Maitama",
+      "Jahi",
+      "Gwarinpa",
+      "Jabi",
+      "Utako",
+      "Asokoro",
+      "Kubwa",
+      "Lugbe",
+      "Life Camp",
+      "Nyanya",
+      "Bwari",
+      "Karu"
+    ]
+  },
+  "seo": {
+    "/": {
+      "title": "Book Football Pitches in Abuja | PitchBookng",
+      "description": "Book football pitches in Abuja and Nigeria in seconds. Real-time availability, secure payments, QR tickets and ratings. Download PitchBook NG.",
+      "keywords": "book football pitch Abuja, football pitch booking Nigeria, astro turf booking Abuja, 5-a-side Abuja, PitchBookng, PitchBook NG"
+    },
+    "/faq": {
+      "title": "FAQ | PitchBookng Football Pitch Booking",
+      "description": "Answers about booking football pitches in Abuja, payments, refunds, QR tickets and listing your venue on PitchBookng.",
+      "keywords": "PitchBookng FAQ, book football pitch Abuja help, pitch booking refund Nigeria"
+    },
+    "/about": {
+      "title": "About PitchBookng | Football Pitch Booking in Nigeria",
+      "description": "PitchBookng is a Nigerian football pitch booking app based in Abuja. We help players book pitches and owners fill more slots.",
+      "keywords": "about PitchBookng, football pitch booking Nigeria, PitchBook NG Abuja"
+    },
+    "/owners": {
+      "title": "List Your Football Pitch | PitchBookng for Owners",
+      "description": "List your football pitch in Abuja or Nigeria on PitchBookng. Accept bookings, scan QR tickets and track earnings with the owners app.",
+      "keywords": "list football pitch Abuja, pitch owner dashboard Nigeria, PitchBookng organisation app"
+    },
+    "/football-pitches-abuja": {
+      "title": "Book a Football Pitch in Abuja | PitchBookng",
+      "description": "Find and book football pitches in Abuja — Wuse, Garki, Jahi, Gwarinpa, Jabi and more. Live availability, secure payment, QR ticket.",
+      "keywords": "book football pitch Abuja, astro turf Abuja, 5-a-side Abuja, football pitch Wuse, football pitch Gwarinpa"
+    },
+    "/contact-us": {
+      "title": "Contact PitchBookng | Support and Enquiries",
+      "description": "Contact PitchBookng for booking help, refunds or listing your pitch. Email support@pitchbookng.com or info@pitchbookng.com.",
+      "keywords": "PitchBookng contact, PitchBook NG support, football pitch booking help Abuja"
+    },
+    "/terms": {
+      "title": "Terms & Conditions | PitchBookng",
+      "description": "Terms and conditions for using PitchBookng to book football pitches in Nigeria.",
+      "keywords": "PitchBookng terms, pitch booking terms Nigeria"
+    },
+    "/privacy": {
+      "title": "Privacy Policy | PitchBookng",
+      "description": "How PitchBookng collects, uses and protects your data when you book football pitches.",
+      "keywords": "PitchBookng privacy policy"
+    },
+    "/refunds": {
+      "title": "Refund Policy | PitchBookng",
+      "description": "Cancellation and refund rules for football pitch bookings on PitchBookng.",
+      "keywords": "PitchBookng refunds, cancel football pitch booking"
+    }
+  }
+}

@@ -1,17 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Images } from "../assets";
 import { Link } from "react-router-dom";
-
-type NavItem = { label: string; href: string };
-
-const NAV: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Features", href: "#features" },
-  { label: "Download App", href: "#download" },
-  { label: "Contact", href: "/contact-us" },
-];
+import { site } from "../content/site";
+import StoreButtons from "./StoreButtons";
 
 function classNames(...v: Array<string | false | undefined | null>) {
   return v.filter(Boolean).join(" ");
@@ -28,50 +19,25 @@ function useLockBody(locked: boolean) {
   }, [locked]);
 }
 
-function AppStoreButtons() {
+function Logo({ onClick }: { onClick?: () => void }) {
   return (
-    <div className="flex gap-3">
-      <a
-        href="https://apps.apple.com/ng/app/pitchbook-ng/id6757698794"
-        aria-label="Download on the App Store"
-      >
-        <div className=" h-12 bg-black rounded-lg flex items-center p-2 gap-3">
-          <img src={Images.appleLogoWhite} className="w-6" />
-          <div className="flex flex-col gap-0">
-            <p className="text-white text-xs">Download on the</p>
-            <p className="text-white">App Store</p>
-          </div>
-        </div>
-      </a>
-
-      <a href="" aria-label="Get it on Google Play">
-        <div className=" h-12 bg-black rounded-lg flex items-center p-2 gap-3">
-          <img src={Images.playStore} className="w-6" />
-          <div className="flex flex-col gap-0">
-            <p className="text-white text-xs">Get it on</p>
-            <p className="text-white">Google Play</p>
-          </div>
-        </div>
-      </a>
-    </div>
-  );
-}
-
-function Logo() {
-  return (
-    <a href="#home" className="group inline-flex items-center gap-2">
+    <Link
+      to="/"
+      onClick={onClick}
+      className="group inline-flex items-center gap-2"
+    >
       <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-700/15 ring-1 ring-emerald-500/20">
-        <img src={Images.logo} />
+        <img src="/logo.png" alt={`${site.brand.name} logo`} className="h-8 w-8" />
       </span>
       <span className="leading-tight">
         <span className="block text-base font-semibold text-zinc-900">
-          PitchBookng
+          {site.brand.name}
         </span>
         <span className="block text-xs text-zinc-600 group-hover:text-zinc-700">
           Book pitches fast
         </span>
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -85,7 +51,6 @@ export default function AppHeader({
   const [open, setOpen] = useState(false);
   useLockBody(open);
 
-  // close on escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -97,17 +62,16 @@ export default function AppHeader({
   const headerCls = useMemo(
     () =>
       classNames(
-        "w-full",
+        "relative w-full",
         sticky && "sticky top-0 z-50",
         "backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/80",
-        "border-b border-zinc-200/70 bg-red-100"
+        "border-b border-zinc-200/70",
       ),
-    [sticky]
+    [sticky],
   );
 
   return (
     <header className={headerCls}>
-      {/* subtle texture behind header */}
       {texture && (
         <div
           aria-hidden="true"
@@ -124,13 +88,11 @@ export default function AppHeader({
         <div className="flex h-16 items-center justify-between">
           <Logo />
 
-          {/* Desktop nav */}
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
-            {NAV.map((item) => (
+            {site.nav.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                onClick={() => window.scrollTo(0, 0)}
                 className="rounded-xl px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-emerald-50 hover:text-zinc-900"
               >
                 {item.label}
@@ -138,12 +100,10 @@ export default function AppHeader({
             ))}
           </nav>
 
-          {/* Right actions */}
           <div className="hidden items-center gap-3 lg:flex">
-            <AppStoreButtons />
+            <StoreButtons />
           </div>
 
-          {/* Mobile menu button */}
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900/5 text-zinc-900 ring-1 ring-zinc-200 transition hover:bg-zinc-900/10 lg:hidden"
@@ -156,34 +116,31 @@ export default function AppHeader({
         </div>
       </div>
 
-      {/* Mobile drawer */}
       <div
         className={classNames(
           "lg:hidden",
-          open ? "pointer-events-auto bg-white" : "hidden pointer-events-none"
+          open ? "pointer-events-auto bg-white" : "hidden pointer-events-none",
         )}
         aria-hidden={!open}
       >
-        {/* overlay */}
         <div
           className={classNames(
             "fixed inset-0 z-50 bg-zinc-950/40 backdrop-blur-sm transition-opacity",
-            open ? "opacity-100" : "opacity-0"
+            open ? "opacity-100" : "opacity-0",
           )}
           onClick={() => setOpen(false)}
         />
 
-        {/* panel */}
         <div
           className={classNames(
             "fixed right-0 top-0 z-[60] h-full w-[86%] max-w-sm transform bg-white shadow-2xl transition",
-            open ? "translate-x-0" : "translate-x-full"
+            open ? "translate-x-0" : "translate-x-full",
           )}
           role="dialog"
           aria-modal="true"
         >
           <div className="flex items-center justify-between border-b border-zinc-200 px-5 py-4">
-            <Logo />
+            <Logo onClick={() => setOpen(false)} />
             <button
               type="button"
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-900/5 text-zinc-900 ring-1 ring-zinc-200 transition hover:bg-zinc-900/10"
@@ -196,58 +153,35 @@ export default function AppHeader({
 
           <div className="px-5 py-5 bg-white">
             <nav className="flex flex-col gap-1" aria-label="Mobile">
-              {NAV.map((item) => (
-                <a
+              {site.nav.map((item) => (
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   onClick={() => setOpen(false)}
                   className="rounded-xl px-3 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-emerald-50"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             <div className="flex flex-col gap-3 mt-6 rounded-2xl bg-emerald-50 p-4 ring-1 ring-emerald-100">
               <p className="text-sm font-semibold text-zinc-900">Get the app</p>
               <p className="mt-1 text-xs text-zinc-600">
-                Book pitches, pay securely, and track bookings.
+                Book football pitches in Abuja, pay securely, and track bookings.
               </p>
-              <div className="flex flex-col gap-3">
-                <a
-                  href="https://apps.apple.com/ng/app/pitchbook-ng/id6757698794"
-                  aria-label="Download on the App Store"
-                >
-                  <div className="h-12 bg-black rounded-lg flex items-center p-5 gap-3">
-                    <img src={Images.appleLogoWhite} className="w-6" />
-                    <div className="flex flex-col gap-0">
-                      <p className="text-white text-xs">Download on the</p>
-                      <p className="text-white">App Store</p>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="" aria-label="Get it on Google Play">
-                  <div className=" h-12 bg-black rounded-lg flex items-center p-2 gap-3">
-                    <img src={Images.playStore} className="w-6" />
-                    <div className="flex flex-col gap-0">
-                      <p className="text-white text-xs">Get it on</p>
-                      <p className="text-white">Google Play</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <StoreButtons layout="stack" />
             </div>
 
             <p className="mt-6 text-xs text-zinc-500">
               By downloading, you agree to our{" "}
-              <a className="text-emerald-700 hover:underline" href="/terms">
+              <Link className="text-emerald-700 hover:underline" to="/terms">
                 Terms
-              </a>{" "}
+              </Link>{" "}
               and{" "}
-              <a className="text-emerald-700 hover:underline" href="/privacy">
+              <Link className="text-emerald-700 hover:underline" to="/privacy">
                 Privacy Policy
-              </a>
+              </Link>
               .
             </p>
           </div>

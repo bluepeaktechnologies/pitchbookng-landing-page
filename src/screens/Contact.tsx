@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Mail,
@@ -10,6 +10,8 @@ import {
   CheckCircle2,
   AlertTriangle,
 } from "lucide-react";
+import { site } from "../content/site";
+import { trackEvent } from "../lib/analytics";
 
 const CATEGORIES = [
   { value: "app_enquiry", label: "App enquiry" },
@@ -98,6 +100,7 @@ export default function ContactUs() {
       }
       // }
 
+      trackEvent("contact_submit", { category: form.category });
       setStatus({ state: "success" });
       setForm({
         name: "",
@@ -314,12 +317,19 @@ export default function ContactUs() {
                   <div className="flex items-start gap-3">
                     <Mail className="mt-0.5 h-5 w-5 text-emerald-700" />
                     <div>
-                      <p className="font-medium text-zinc-900">Email</p>
+                      <p className="font-medium text-zinc-900">Support</p>
                       <a
-                        href="mailto:support@pitchbookng.com"
+                        href={`mailto:${site.contact.supportEmail}`}
                         className="text-emerald-700 hover:underline"
                       >
-                        support@pitchbookng.com
+                        {site.contact.supportEmail}
+                      </a>
+                      <p className="mt-2 font-medium text-zinc-900">Enquiries</p>
+                      <a
+                        href={`mailto:${site.contact.infoEmail}`}
+                        className="text-emerald-700 hover:underline"
+                      >
+                        {site.contact.infoEmail}
                       </a>
                     </div>
                   </div>
@@ -327,8 +337,16 @@ export default function ContactUs() {
                   <div className="flex items-start gap-3">
                     <Phone className="mt-0.5 h-5 w-5 text-emerald-700" />
                     <div>
-                      <p className="font-medium text-zinc-900">Phone</p>
-                      <p className="text-zinc-700">+234 (0) 70 679 00656</p>
+                      <p className="font-medium text-zinc-900">WhatsApp</p>
+                      <a
+                        href={site.contact.whatsappUrl}
+                        onClick={() =>
+                          trackEvent("whatsapp_click", { network: "whatsapp" })
+                        }
+                        className="text-emerald-700 hover:underline"
+                      >
+                        {site.contact.phoneDisplay}
+                      </a>
                     </div>
                   </div>
 
@@ -336,7 +354,7 @@ export default function ContactUs() {
                     <MapPin className="mt-0.5 h-5 w-5 text-emerald-700" />
                     <div>
                       <p className="font-medium text-zinc-900">Address</p>
-                      <p className="text-zinc-700">Abuja, Nigeria</p>
+                      <p className="text-zinc-700">{site.contact.address.display}</p>
                     </div>
                   </div>
 
@@ -344,7 +362,7 @@ export default function ContactUs() {
                     <Clock className="mt-0.5 h-5 w-5 text-emerald-700" />
                     <div>
                       <p className="font-medium text-zinc-900">Support hours</p>
-                      <p className="text-zinc-700">Mon–Sat, 9:00am – 6:00pm</p>
+                      <p className="text-zinc-700">{site.contact.hours}</p>
                     </div>
                   </div>
                 </div>

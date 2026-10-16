@@ -1,4 +1,5 @@
 import React from "react";
+import { site } from "../content/site";
 
 type Section = {
   id: string;
@@ -70,8 +71,8 @@ export const CancellationTerms = () => {
                   <h2>Contact</h2>
                   <p>
                     For questions about these Terms, contact{" "}
-                    <a href="mailto:support@pitchbookng.com">
-                      support@pitchbookng.com
+                    <a href={`mailto:${site.contact.supportEmail}`}>
+                      {site.contact.supportEmail}
                     </a>
                     .
                   </p>
@@ -91,7 +92,7 @@ export const CancellationTerms = () => {
                   Reach our support team for any questions.
                 </p>
                 <a
-                  href="mailto:support@pitchbookng.com"
+                  href={`mailto:${site.contact.supportEmail}`}
                   className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-zinc-900"
                 >
                   Email support

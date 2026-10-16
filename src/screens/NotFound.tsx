@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Home, Search, ShieldAlert } from "lucide-react";
 
@@ -25,12 +24,8 @@ const MESSAGES = [
   "404 — This page is currently on international duty.",
 ];
 
-function pickRandom<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
 export const NotFound = () => {
-  const message = useMemo(() => pickRandom(MESSAGES), []);
+  const message = MESSAGES[0];
 
   return (
     <main className="w-full relative min-h-[calc(100vh-90px)] overflow-hidden bg-white">
