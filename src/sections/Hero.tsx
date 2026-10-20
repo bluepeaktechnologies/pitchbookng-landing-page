@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import StoreButtons from "../components/StoreButtons";
+import WebAppButtons from "../components/WebAppButtons";
 import { site } from "../content/site";
 
 export default function Hero() {
@@ -52,7 +53,8 @@ export default function Hero() {
               playing, not planning.
             </p>
 
-            <div className="mt-7">
+            <div className="mt-7 flex flex-col gap-3">
+              <WebAppButtons />
               <StoreButtons />
             </div>
 

@@ -30,7 +30,12 @@
     "x": "https://x.com/pitchbookng",
     "facebook": "https://www.facebook.com/share/1LsN4eRGR7",
     "tiktok": "https://www.tiktok.com/@pitchbook.ng",
-    "whatsapp": "https://wa.me/2347037656451"
+    "whatsapp": "https://wa.me/2347037656451",
+    "googleBusiness": ""
+  },
+  "webApps": {
+    "client": "https://pitchbook.expo.app",
+    "org": "https://pitchbook-org.expo.app"
   },
   "stores": {
     "ios": {

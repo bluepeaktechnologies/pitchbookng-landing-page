@@ -4,7 +4,11 @@
       {
         "appID": "DZ24F9LC96.com.pitchbookng.clientapp",
         "paths": [
-          "/*"
+          "/pitch/*",
+          "/sessions/*",
+          "/session/*",
+          "/venue/*",
+          "/flutterwave-redirect/*"
         ]
       }
     ]

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PageBand from "../components/PageBand";
+import WebAppButtons from "../components/WebAppButtons";
 import { site } from "../content/site";
 import { trackEvent } from "../lib/analytics";
 
@@ -42,13 +43,14 @@ export default function Owners() {
             </a>{" "}
             or message us on WhatsApp and we will get you onto the owners app.
           </p>
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <WebAppButtons showBook={false} />
             <a
               href={site.contact.whatsappUrl}
               onClick={() =>
                 trackEvent("whatsapp_click", { network: "whatsapp" })
               }
-              className="inline-flex items-center rounded-xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
+              className="inline-flex items-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-emerald-900 ring-1 ring-emerald-200 hover:bg-emerald-50"
             >
               WhatsApp us
             </a>

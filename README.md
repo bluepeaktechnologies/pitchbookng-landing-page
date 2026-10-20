@@ -15,6 +15,8 @@ Update that JSON, then rebuild. Header, footer, How it works, FAQ, About, Owners
 - **Emails:** `info@pitchbookng.com` (general) and `support@pitchbookng.com` (bookings / refunds)
 - **WhatsApp / phone:** `+2347037656451`
 - **Google Play:** set `stores.android.url` when the listing is live. While it is `null`, the button shows “Coming soon”.
+- **Web apps:** `webApps.client` and `webApps.org` are the Expo hosting URLs behind `/app` and the **Book a session** / **Register your Pitch** buttons. Update both `site.json` and the matching `vercel.json` redirects if the Expo host changes.
+- **Google Business Profile:** set `social.googleBusiness` to the Maps URL when the listing is live. Empty string is omitted from JSON-LD `sameAs`.
 
 ## Local development
 
@@ -56,11 +58,17 @@ Paste these into each profile:
 Shipping this site is not enough. You still need to:
 
 1. Verify `pitchbookng.com` in [Google Search Console](https://search.google.com/search-console) (DNS TXT is most reliable), submit `https://pitchbookng.com/sitemap.xml`, then Request indexing on the home page.
-2. Create a Google Business Profile for PitchBookng in Abuja.
+2. Create a Google Business Profile for PitchBookng in Abuja:
+   - Website: `https://pitchbookng.com` (never the Expo URL)
+   - Category: sports booking / software company
+   - NAP: Jahi, Abuja, `+234 703 765 6451`, Mon–Sat 9:00am–6:00pm (must match `site.json`)
+   - Photos: logo, product screens, real listed pitches (with permission)
+   - Paste the Maps URL into `social.googleBusiness` in `site.json`
 3. In Vercel domains, redirect `www.pitchbookng.com` → `https://pitchbookng.com` with a **308** (permanent), not 307.
 4. Create a GA4 property and set `VITE_GA_MEASUREMENT_ID`.
 5. Put the tagged website URL in every social bio. Set pitchbookng.com as the App Store marketing and support URL.
 6. Ask partner venues to link to the site.
+7. Set the Supabase secret `FLUTTERWAVE_REDIRECT_URL` to `{webApps.client}/flutterwave-redirect/payment-success` (do not commit it). After `app.pitchbookng.com` exists, switch the secret to that host.
 
 **Expectations:** “pitchbook ng” should rank once Google indexes the domain. “Book football pitch Abuja” takes weeks to months plus the Business Profile and links. Generic “football” will not rank first.
 

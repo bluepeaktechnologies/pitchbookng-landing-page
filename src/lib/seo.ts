@@ -23,7 +23,8 @@ function organizationLd() {
       site.social.facebook,
       site.social.tiktok,
       site.social.whatsapp,
-    ],
+      site.social.googleBusiness,
+    ].filter((url) => url.length > 0),
     address: {
       "@type": "PostalAddress",
       addressLocality: site.contact.address.city,

@@ -1,4 +1,5 @@
 import StoreButtons from "../components/StoreButtons";
+import WebAppButtons from "../components/WebAppButtons";
 import { site } from "../content/site";
 
 export default function DownloadCta() {
@@ -20,7 +21,8 @@ export default function DownloadCta() {
             </a>
             .
           </p>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <WebAppButtons />
             <StoreButtons />
           </div>
         </div>
