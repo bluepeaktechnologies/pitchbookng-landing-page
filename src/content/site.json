@@ -34,7 +34,7 @@
     "googleBusiness": ""
   },
   "webApps": {
-    "client": "https://pitchbook.expo.app",
+    "client": "https://pitchbookng.expo.app",
     "org": "https://pitchbook-org.expo.app"
   },
   "stores": {
@@ -60,7 +60,10 @@
       { "label": "How It Works", "href": "/#how-it-works" },
       { "label": "Features", "href": "/#features" },
       { "label": "For Pitch Owners", "href": "/owners" },
-      { "label": "Football Pitches in Abuja", "href": "/football-pitches-abuja" }
+      {
+        "label": "Football Pitches in Abuja",
+        "href": "/football-pitches-abuja"
+      }
     ],
     "company": [
       { "label": "About", "href": "/about" },

@@ -10,12 +10,12 @@
   "redirects": [
     {
       "source": "/app",
-      "destination": "https://pitchbook.expo.app",
+      "destination": "https://pitchbookng.expo.app",
       "statusCode": 302
     },
     {
       "source": "/flutterwave-redirect/:path*",
-      "destination": "https://pitchbook.expo.app/flutterwave-redirect/:path*",
+      "destination": "https://pitchbookng.expo.app/flutterwave-redirect/:path*",
       "statusCode": 302
     }
   ]

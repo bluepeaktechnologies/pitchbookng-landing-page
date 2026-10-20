@@ -79,9 +79,8 @@ export default function Hero() {
               <img
                 src="/images/app-screenshot.webp"
                 alt="PitchBookng app showing football pitch listings and a booking in Abuja"
-                className="h-96 lg:h-[500px] rounded-3xl shadow-2xl ring-1 ring-black/10"
-                width={450}
-                height={920}
+                className="rounded-3xl shadow-2xl ring-1 ring-black/10"
+                width={280}
                 fetchPriority="high"
               />
             </div>
